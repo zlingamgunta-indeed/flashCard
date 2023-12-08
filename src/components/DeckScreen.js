@@ -1,7 +1,6 @@
 import Navigation from "./Navigation";
 import {useEffect, useState} from "react";
 import {useHistory, useParams} from "react-router-dom";
-import {getDeck} from "../Layout";
 import {deleteCard, readDeck} from "../utils/api";
 
 function getCardId(deckId, abortController, card) {

@@ -3,7 +3,6 @@ import Header from "./Header";
 import {Route, Switch, useHistory} from "react-router-dom";
 import NotFound from "./NotFound";
 import Decks from "../components/Decks";
-import Deck from "../components/Deck";
 import DeckList from "../components/DeckList";
 import {listDecks, readDeck} from "../utils/api";
 
