@@ -1,6 +1,6 @@
 import {useHistory} from "react-router-dom";
 
-function Deck({index, name, description, cardsLength, deleteDeck}) {
+function Deck({index, id, name, description, cardsLength, deleteDeck}) {
     const history = useHistory();
     return (
         <div className="decksList">
@@ -12,10 +12,10 @@ function Deck({index, name, description, cardsLength, deleteDeck}) {
             <div>
                 <div>
                     <button onClick={() => {
-                        history.push(`/decks/${index+1}`)
+                        history.push(`/decks/${id}`)
                     }}>View</button>
                     <button onClick={() => {
-                        history.push(`/decks/${index+1}/study`)
+                        history.push(`/decks/${id}/study`)
                     }}>Study</button>
                 </div>
                 <button onClick={() => {

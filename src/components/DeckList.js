@@ -14,6 +14,7 @@ function DeckList({decksList, setDecksList}) {
                 {decksList.map((deck, index) => <Deck
                     key={index}
                     index={index}
+                    id={deck.id}
                     name={deck.name}
                     description={deck.description}
                     cardsLength={deck.cards.length}
