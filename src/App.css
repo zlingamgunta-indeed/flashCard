@@ -1,0 +1,31 @@
+.decksList {
+    border-radius: 0.2rem;
+    border-width: thin;
+    border-style: solid;
+}
+
+.decksList > div {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style-type: none;
+}
+
+nav li {
+    margin-right: 5px;
+    font-weight: bold;
+    color: #4c566a;
+}
+
+.deckScreenButtons button {
+    margin-right: 10px;
+}
+
+.deckScreenButtons button:last-child {
+    float: right;
+}
