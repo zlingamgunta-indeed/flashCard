@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {createDeck, updateDeck} from "../utils/api";
 import {getDeck} from "../Layout";
 
-function DeckForm() {
+function DeckForm({setDecksList}) {
     const history = useHistory()
     const location = useLocation();
     let [deckObject, setDeckObject] = useState({
@@ -36,6 +36,7 @@ function DeckForm() {
                 const abortController = new AbortController();
                 if (location.pathname === "/decks/new") {
                     createDeck(deckObject, abortController.signal).then(r => {
+                        setDecksList((oldList) => [...oldList, {...r, cards: []}])
                         setDeckObject({name: '', description: ''})
                         history.push(`/decks/${r.id}`)
                     })

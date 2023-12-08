@@ -3,14 +3,13 @@ import NotFound from "../Layout/NotFound";
 import DeckStudy from "./DeckStudy";
 import DeckForm from "./DeckForm";
 import DeckScreen from "./DeckScreen";
-import {useState} from "react";
 import CardForm from "./CardForm";
 
-function Decks() {
+function Decks({setDecksList}) {
     return (
         <Switch>
             <Route exact path="/decks/new">
-                <DeckForm />
+                <DeckForm setDecksList={setDecksList} />
             </Route>
             <Route path="/decks/:deckId">
                 <Switch>

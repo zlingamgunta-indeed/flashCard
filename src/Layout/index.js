@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Header from "./Header";
 import {Route, Switch, useHistory} from "react-router-dom";
 import NotFound from "./NotFound";
 import Decks from "../components/Decks";
 import Deck from "../components/Deck";
 import DeckList from "../components/DeckList";
-import {readDeck} from "../utils/api";
+import {listDecks, readDeck} from "../utils/api";
 
 
 export function getDeck(setDeck, deckId) {
@@ -19,6 +19,12 @@ export function getDeck(setDeck, deckId) {
 
 function Layout() {
     const history = useHistory();
+    const [decksList, setDecksList] = useState([]);
+
+    useEffect(() => {
+        const abortController = new AbortController();
+        listDecks(abortController.signal).then(r => setDecksList(r))
+    }, [])
   return (
     <>
       <Header />
@@ -28,10 +34,10 @@ function Layout() {
                   <button onClick={() => {
                       history.push("/decks/new")
                   }}>Create Deck</button>
-                  <DeckList />
+                  <DeckList decksList={decksList} setDecksList={setDecksList} />
               </Route>
               <Route path="/decks">
-                  <Decks />
+                  <Decks setDecksList={setDecksList} />
               </Route>
               <Route>
                   <NotFound />
